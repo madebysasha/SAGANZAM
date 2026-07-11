@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+:root {
+  --color-cream: #fffbef;
+  --color-espresso: #491a0a;
+  --color-taupe: #a48b7c;
+  --color-taupe-light: #e4d9cc;
+}
+
+@theme inline {
+  --color-cream: var(--color-cream);
+  --color-espresso: var(--color-espresso);
+  --color-taupe: var(--color-taupe);
+  --color-taupe-light: var(--color-taupe-light);
+  --font-display: var(--font-cormorant);
+  --font-sans: var(--font-manrope);
+  /*
+   * Two pixel-exact Figma frames exist so far: 1280–1511px (laptop, the
+   * unprefixed base) and 1512px+ (desktop, `desktop:`). Every section is a
+   * single component; `desktop:` overrides individual position/size values
+   * on the same elements rather than swapping in a separate tree.
+   */
+  --breakpoint-desktop: 1512px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-espresso);
+}
+
+/*
+ * Manrope renders visibly heavier in the browser than in Figma at the
+ * same numeric weight. Step every Manrope (font-sans) weight down one
+ * notch from its Figma-specified value, centrally, instead of editing
+ * each component. Cormorant Garamond (font-display) is untouched.
+ */
+.font-sans.font-medium {
+  font-weight: 400;
+}
+
+.font-sans.font-normal {
+  font-weight: 300;
+}
