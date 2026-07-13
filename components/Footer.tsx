@@ -21,54 +21,54 @@ const NAV_COLUMNS = [
 ];
 
 const FOOTER_TEXT_CLASS =
-  "font-sans text-lg leading-normal font-normal whitespace-nowrap transition-opacity hover:opacity-70";
+  "font-sans text-[15px] leading-normal font-normal transition-opacity hover:opacity-70 tablet:text-[17px] laptop:text-lg laptop:whitespace-nowrap";
 
 export function Footer() {
   return (
     // Figma spaces the footer 200px below the last block at laptop, and only
     // 12px at desktop by default — the client asked for the full 240px
     // rhythm at desktop instead, overriding that.
-    <footer className="relative h-[283px] w-[1280px] mt-[200px] desktop:h-[333px] desktop:w-[1512px] desktop:mt-[240px]">
-      <div className="relative h-[283px] w-[1280px] desktop:h-[333px] desktop:w-[1512px]">
-        <nav
-          className="text-taupe absolute top-0 left-[40px] flex items-center gap-[60px] desktop:left-[calc(50%-318px)] desktop:-translate-x-1/2"
-        >
-          {NAV_COLUMNS.map((col, i) => (
-            <div key={i} className="flex flex-col items-start gap-3">
-              {col.map((item) => (
-                <Link key={item.label} href={item.href} className={FOOTER_TEXT_CLASS}>
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          ))}
-        </nav>
+    <footer className="relative w-full px-5 mt-20 tablet:px-8 tablet:mt-24 laptop:h-[283px] laptop:w-[1280px] laptop:px-0 laptop:mt-[200px] desktop:h-[333px] desktop:w-[1512px] desktop:mt-[240px]">
+      <div className="relative flex flex-col gap-10 tablet:gap-12 laptop:block laptop:h-[283px] laptop:w-[1280px] desktop:h-[333px] desktop:w-[1512px]">
+        <div className="flex flex-col gap-10 tablet:flex-row tablet:flex-wrap tablet:items-start tablet:justify-between tablet:gap-x-10 tablet:gap-y-10 laptop:contents">
+          <nav className="text-taupe flex flex-col gap-8 tablet:flex-row tablet:gap-10 laptop:absolute laptop:top-0 laptop:left-[40px] laptop:flex-row laptop:items-center laptop:gap-[60px] desktop:left-[calc(50%-318px)] desktop:-translate-x-1/2">
+            {NAV_COLUMNS.map((col, i) => (
+              <div key={i} className="flex flex-col items-start gap-3">
+                {col.map((item) => (
+                  <Link key={item.label} href={item.href} className={FOOTER_TEXT_CLASS}>
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            ))}
+          </nav>
 
-        <div className="absolute top-0 right-[40px] flex flex-col items-start gap-1 desktop:right-[120px]">
-          <IconLink
-            icon="telegram"
-            label="Telegram: @saganzam"
-            href="https://t.me/saganzam"
-            className="text-taupe"
-            textClassName={FOOTER_TEXT_CLASS}
-          />
-          <IconLink
-            icon="phone"
-            label="+7 914 985 62-58"
-            href="tel:+79149856258"
-            className="text-taupe"
-            textClassName={FOOTER_TEXT_CLASS}
-          />
-          <IconLink
-            icon="place"
-            label="Улан-Удэ, пр-т 50-летия октября, 21"
-            href="https://maps.google.com/?q=Улан-Удэ, пр-т 50-летия октября, 21"
-            className="text-taupe"
-            textClassName={FOOTER_TEXT_CLASS}
-          />
+          <div className="flex flex-col items-start gap-2 laptop:absolute laptop:top-0 laptop:right-[40px] laptop:gap-1 desktop:right-[120px]">
+            <IconLink
+              icon="telegram"
+              label="Telegram: @saganzam"
+              href="https://t.me/saganzam"
+              className="text-taupe"
+              textClassName={FOOTER_TEXT_CLASS}
+            />
+            <IconLink
+              icon="phone"
+              label="+7 914 985 62-58"
+              href="tel:+79149856258"
+              className="text-taupe"
+              textClassName={FOOTER_TEXT_CLASS}
+            />
+            <IconLink
+              icon="place"
+              label="Улан-Удэ, пр-т 50-летия октября, 21"
+              href="https://maps.google.com/?q=Улан-Удэ, пр-т 50-летия октября, 21"
+              className="text-taupe"
+              textClassName={FOOTER_TEXT_CLASS}
+            />
+          </div>
         </div>
 
-        <div className="absolute right-[16.58px] bottom-[-5.32px] left-[16.58px] desktop:right-[21.58px] desktop:bottom-[-4.83px] desktop:left-[21.58px]">
+        <div className="relative w-full laptop:absolute laptop:right-[16.58px] laptop:bottom-[-5.32px] laptop:left-[16.58px] laptop:w-auto desktop:right-[21.58px] desktop:bottom-[-4.83px] desktop:left-[21.58px]">
           <Image
             src="/images/footer-logotype.svg"
             alt="Саган Зам"
