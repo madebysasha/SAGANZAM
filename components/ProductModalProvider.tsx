@@ -65,7 +65,7 @@ export function ProductModalProvider({ children }: { children: ReactNode }) {
         aria-hidden={!product}
       >
         <div
-          className={`relative flex max-h-[85vh] w-[960px] max-w-[92vw] gap-10 overflow-y-auto bg-white p-10 transition-all duration-300 ${
+          className={`relative flex max-h-[85vh] w-full max-w-[92vw] flex-col gap-6 overflow-y-auto bg-white p-6 transition-all duration-300 tablet:gap-8 tablet:p-8 laptop:w-[960px] laptop:flex-row laptop:gap-10 laptop:p-10 ${
             product ? "translate-y-0 scale-100 opacity-100" : "translate-y-4 scale-95 opacity-0"
           }`}
           onClick={(e) => e.stopPropagation()}
@@ -74,7 +74,7 @@ export function ProductModalProvider({ children }: { children: ReactNode }) {
 
           {product && activeColor && (
             <>
-              <div className="flex w-[420px] shrink-0 flex-col gap-3">
+              <div className="flex w-full flex-col gap-3 laptop:w-[420px] laptop:shrink-0">
                 <div className="relative aspect-[483/644] w-full overflow-hidden bg-[#f4f4f4]">
                   {activeImage && (
                     <Image src={activeImage} alt={product.name} fill className="object-cover" />
@@ -96,12 +96,12 @@ export function ProductModalProvider({ children }: { children: ReactNode }) {
                 </div>
               </div>
 
-              <div className="text-espresso flex flex-1 flex-col items-start gap-5">
+              <div className="text-espresso flex w-full flex-col items-start gap-5 laptop:flex-1">
                 <div>
-                  <p className="font-display text-[32px] leading-[1.1] font-normal italic">
+                  <p className="font-display text-[24px] leading-[1.1] font-normal italic tablet:text-[28px] laptop:text-[32px]">
                     {product.name}
                   </p>
-                  <p className="font-sans text-xl leading-normal font-normal">
+                  <p className="font-sans text-lg leading-normal font-normal tablet:text-xl">
                     от {product.price.toLocaleString("ru-RU")} ₽
                   </p>
                 </div>
@@ -166,7 +166,7 @@ export function ProductModalProvider({ children }: { children: ReactNode }) {
                     close();
                     openPopup();
                   }}
-                  className="bg-espresso text-cream font-sans flex w-full cursor-pointer items-center justify-center gap-4 px-6 py-4 text-xl leading-[1.2] font-normal tracking-[-0.4px] transition-opacity hover:opacity-90"
+                  className="bg-espresso text-cream font-sans flex w-full cursor-pointer items-center justify-center gap-4 px-6 py-3 text-lg leading-[1.2] font-normal tracking-[-0.2px] transition-opacity hover:opacity-90 tablet:py-4 tablet:text-xl tablet:tracking-[-0.4px]"
                 >
                   Заказать
                 </button>
