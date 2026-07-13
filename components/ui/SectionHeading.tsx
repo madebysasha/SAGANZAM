@@ -21,10 +21,10 @@ export function SectionHeading({
 
   const eyebrowTitle = (
     <>
-      <p className="font-display text-[32px] leading-[0.9] font-medium tracking-[-0.96px] italic">
+      <p className="font-display text-[20px] leading-[0.95] font-medium tracking-[-0.4px] italic tablet:text-[26px] tablet:leading-[0.9] tablet:tracking-[-0.7px] laptop:text-[32px] laptop:tracking-[-0.96px]">
         {eyebrow}
       </p>
-      <p className="font-sans text-[48px] leading-[1.1] font-normal tracking-[-1.92px]">
+      <p className="font-sans text-[30px] leading-[1.15] font-normal tracking-[-0.6px] tablet:text-[38px] tablet:leading-[1.1] tablet:tracking-[-1.2px] laptop:text-[48px] laptop:tracking-[-1.92px]">
         {title}
       </p>
     </>
@@ -33,7 +33,7 @@ export function SectionHeading({
   if (!description) {
     return (
       <div
-        className={`text-espresso flex flex-col gap-6 ${alignClass} ${className ?? ""}`}
+        className={`text-espresso flex flex-col gap-4 tablet:gap-5 laptop:gap-6 ${alignClass} ${className ?? ""}`}
         style={style}
       >
         {eyebrowTitle}
@@ -43,11 +43,13 @@ export function SectionHeading({
 
   return (
     <div
-      className={`text-espresso flex flex-col gap-5 ${alignClass} ${className ?? ""}`}
+      className={`text-espresso flex flex-col gap-4 tablet:gap-5 ${alignClass} ${className ?? ""}`}
       style={style}
     >
-      <div className={`flex flex-col gap-3 ${alignClass}`}>{eyebrowTitle}</div>
-      <p className="font-sans text-xl leading-normal font-medium">{description}</p>
+      <div className={`flex flex-col gap-2 tablet:gap-3 ${alignClass}`}>{eyebrowTitle}</div>
+      <p className="font-sans text-base leading-normal font-medium tablet:text-lg laptop:text-xl">
+        {description}
+      </p>
     </div>
   );
 }
