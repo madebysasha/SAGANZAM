@@ -28,7 +28,7 @@ export function AboutSection() {
 
         {/* Photo pair — clean stack on mobile, a scaled-down scrapbook overlap at tablet, original rotated collage at laptop/desktop */}
         <div className="relative flex w-full flex-col items-center gap-8 tablet:block tablet:h-[420px] laptop:contents">
-          <div className="tablet:absolute tablet:top-0 tablet:left-1/2 tablet:h-[380px] tablet:w-[440px] tablet:-translate-x-1/2 tablet:overflow-hidden tablet:rounded-sm tablet:mix-blend-multiply laptop:hidden">
+          <div className="hidden tablet:absolute tablet:top-0 tablet:left-1/2 tablet:block tablet:h-[380px] tablet:w-[440px] tablet:-translate-x-1/2 tablet:overflow-hidden tablet:rounded-sm tablet:mix-blend-multiply laptop:hidden">
             <Image src="/images/about-paper-texture.png" alt="" fill className="object-cover" />
           </div>
           <div className="relative aspect-[468/550] w-full max-w-[280px] overflow-hidden tablet:absolute tablet:top-[20px] tablet:left-[150px] tablet:aspect-auto tablet:h-[340px] tablet:w-[290px] tablet:max-w-none tablet:rotate-[-6deg] laptop:top-[668.31px] laptop:left-[calc(50%-363.06px)] laptop:h-[550.14px] laptop:w-[468.21px] laptop:-translate-x-1/2 laptop:rotate-[-9.66deg] desktop:top-[721.59px] desktop:left-[calc(50%-437.08px)] desktop:h-[634.64px] desktop:w-[540.12px]">

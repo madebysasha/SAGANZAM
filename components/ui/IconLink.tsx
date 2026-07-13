@@ -19,7 +19,7 @@ export function IconLink({
   label,
   href = "#",
   className,
-  textClassName = "font-sans text-xl leading-[1.2] font-normal tracking-[-0.4px] whitespace-nowrap",
+  textClassName = "font-sans text-base leading-[1.2] font-normal tracking-[-0.2px] whitespace-nowrap tablet:text-lg tablet:tracking-[-0.3px] laptop:text-xl laptop:tracking-[-0.4px]",
 }: IconLinkProps) {
   return (
     <a

@@ -45,11 +45,14 @@ export function ApplicationForm({
 
   if (submitted) {
     return (
-      <div className={`flex flex-col items-start gap-4 bg-white p-[42px] ${className ?? ""}`} style={style}>
-        <p className="font-display text-espresso text-[32px] leading-[0.9] font-medium italic">
+      <div
+        className={`flex flex-col items-start gap-4 bg-white p-6 tablet:p-8 laptop:p-[42px] ${className ?? ""}`}
+        style={style}
+      >
+        <p className="font-display text-espresso text-[26px] leading-[0.95] font-medium italic tablet:text-[32px] tablet:leading-[0.9]">
           Спасибо!
         </p>
-        <p className="text-espresso font-sans text-lg leading-normal font-normal">
+        <p className="text-espresso font-sans text-base leading-normal font-normal tablet:text-lg">
           Мы получили заявку и свяжемся с вами в ближайшее время.
         </p>
       </div>
@@ -69,7 +72,7 @@ export function ApplicationForm({
         // No backend wired up yet — this just shows a confirmation state locally.
         setSubmitted(true);
       }}
-      className={`flex flex-col items-start gap-10 bg-white p-[42px] ${className ?? ""}`}
+      className={`flex flex-col items-start gap-6 bg-white p-6 tablet:gap-8 tablet:p-8 laptop:gap-10 laptop:p-[42px] ${className ?? ""}`}
       style={style}
     >
       <div className="flex w-full flex-col items-start gap-[19px]">
@@ -102,7 +105,7 @@ export function ApplicationForm({
         <button
           type="submit"
           aria-disabled={!isReady}
-          className={`font-sans flex w-full items-center justify-center gap-4 px-6 py-4 text-xl leading-[1.2] font-normal tracking-[-0.4px] transition-all ${
+          className={`font-sans flex w-full items-center justify-center gap-4 px-6 py-3 text-lg leading-[1.2] font-normal tracking-[-0.2px] transition-all tablet:py-4 tablet:text-xl tablet:tracking-[-0.4px] ${
             isReady
               ? "bg-espresso text-cream cursor-pointer hover:opacity-90"
               : "bg-espresso/40 text-cream cursor-not-allowed"
