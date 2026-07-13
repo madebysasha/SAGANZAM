@@ -15,11 +15,18 @@
   --font-display: var(--font-cormorant);
   --font-sans: var(--font-manrope);
   /*
-   * Two pixel-exact Figma frames exist so far: 1280–1511px (laptop, the
-   * unprefixed base) and 1512px+ (desktop, `desktop:`). Every section is a
-   * single component; `desktop:` overrides individual position/size values
-   * on the same elements rather than swapping in a separate tree.
+   * Four tiers, mobile-first cascade, one component tree throughout:
+   *  - unprefixed  = mobile base (target 390px), normal document flow
+   *  - `tablet:`   = 768px+, still normal document flow
+   *  - `laptop:`   = 1280px+, the pixel-exact absolute canvas (formerly
+   *                  the unprefixed base, reprefixed when mobile/tablet
+   *                  were added — do not edit these values, only their prefix)
+   *  - `desktop:`  = 1512px+, pixel-exact absolute canvas overrides
+   * `laptop:`/`desktop:` values must stay pixel-identical to the
+   * pre-mobile implementation — mobile/tablet work is purely additive.
    */
+  --breakpoint-tablet: 768px;
+  --breakpoint-laptop: 1280px;
   --breakpoint-desktop: 1512px;
 }
 

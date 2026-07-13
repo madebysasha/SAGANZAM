@@ -9,7 +9,7 @@ import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="bg-cream mx-auto w-[1280px] desktop:w-[1512px]">
+    <main className="bg-cream mx-auto w-full overflow-x-hidden laptop:w-[1280px] laptop:overflow-x-visible desktop:w-[1512px]">
       <Hero />
       <ServicesSection />
       <CoatCatalogSection />
