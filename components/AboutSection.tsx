@@ -22,12 +22,26 @@ export function AboutSection() {
           className="w-full laptop:absolute laptop:top-0 laptop:left-1/2 laptop:w-[577.8px] laptop:-translate-x-1/2"
         />
 
-        <div className="relative aspect-[315/250] w-full max-w-[280px] overflow-hidden laptop:absolute laptop:top-[141.03px] laptop:left-[821.85px] laptop:aspect-auto laptop:h-[250.18px] laptop:w-[315.42px] laptop:max-w-none desktop:top-[117.8px] desktop:left-[961px] desktop:h-[370px] desktop:w-[466.5px]">
-          <Image src="/images/about-ribbon-pin.png" alt="Лента с иглой" fill className="object-cover" />
+        {/* Hidden on mobile — the same ribbon is already baked into the founder collage PNG below */}
+        <div className="relative hidden aspect-[315/250] w-full max-w-[280px] overflow-hidden tablet:block laptop:absolute laptop:top-[141.03px] laptop:left-[821.85px] laptop:aspect-auto laptop:h-[250.18px] laptop:w-[315.42px] laptop:max-w-none desktop:top-[117.8px] desktop:left-[961px] desktop:h-[370px] desktop:w-[466.5px]">
+          <Image src="/images/about-ribbon-pin.png" alt="" fill className="object-cover" />
         </div>
 
-        {/* Photo pair — clean stack on mobile, a scaled-down scrapbook overlap at tablet, original rotated collage at laptop/desktop */}
-        <div className="relative flex w-full flex-col items-center gap-8 tablet:block tablet:h-[420px] laptop:contents">
+        {/* Mobile: a single flattened collage exported straight from the Figma block (same photos as
+            desktop, just recomposed) — CSS could not keep three independently-rotated, absolutely
+            positioned photos locked together across arbitrary viewport widths, which was the cause
+            of the "jumping" layout. Tablet keeps its own scrapbook overlap; laptop/desktop untouched. */}
+        <div className="relative left-1/2 aspect-[413/638] w-screen -translate-x-1/2 tablet:hidden">
+          <Image
+            src="/images/about-founder-collage-mobile.png"
+            alt="Аюна, основатель Саган Зам — архивные фото ателье"
+            fill
+            className="object-contain"
+          />
+        </div>
+
+        {/* Photo pair — scaled-down scrapbook overlap at tablet, original rotated collage at laptop/desktop */}
+        <div className="relative hidden w-full flex-col items-center gap-8 tablet:block tablet:h-[420px] laptop:contents">
           <div className="hidden tablet:absolute tablet:top-0 tablet:left-1/2 tablet:block tablet:h-[380px] tablet:w-[440px] tablet:-translate-x-1/2 tablet:overflow-hidden tablet:rounded-sm tablet:mix-blend-multiply laptop:hidden">
             <Image src="/images/about-paper-texture.png" alt="" fill className="object-cover" />
           </div>

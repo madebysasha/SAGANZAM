@@ -24,38 +24,29 @@ export function Header() {
 
   return (
     <div className="contents">
-      {/* Mobile-only bar: hamburger + centered logo + CTA. Hidden from tablet: up. */}
-      <div className="absolute top-0 left-0 z-20 flex w-full items-center justify-between px-5 pt-6 tablet:hidden">
-        <button
-          type="button"
-          onClick={() => setMenuOpen(true)}
-          aria-label="Открыть меню"
-          className="flex size-9 shrink-0 flex-col items-center justify-center gap-[5px] cursor-pointer"
-        >
-          <span className="h-px w-6 bg-white" />
-          <span className="h-px w-6 bg-white" />
-          <span className="h-px w-6 bg-white" />
-        </button>
+      {/* Mobile-only logo: static, scrolls away with the hero (not pinned). Hidden from tablet: up. */}
+      <Link href="/" className="absolute top-6 left-5 z-20 shrink-0 tablet:hidden">
+        <Image
+          src="/images/logotype.svg"
+          alt="Саган Зам"
+          width={234}
+          height={23}
+          priority
+          className="h-auto w-[150px]"
+        />
+      </Link>
 
-        <Link href="/" className="flex flex-col items-center">
-          <Image
-            src="/images/logotype.svg"
-            alt="Саган Зам"
-            width={234}
-            height={23}
-            priority
-            className="h-auto w-[150px]"
-          />
-        </Link>
-
-        <button
-          type="button"
-          onClick={open}
-          className="cursor-pointer rounded-[30px] bg-white/20 px-3 py-1.5 font-sans text-xs leading-[1.2] font-medium tracking-[-0.2px] text-white whitespace-nowrap transition-colors hover:bg-white/30"
-        >
-          Связь
-        </button>
-      </div>
+      {/* Mobile-only menu trigger: pinned to the viewport at all times, per Figma. */}
+      <button
+        type="button"
+        onClick={() => setMenuOpen(true)}
+        aria-label="Открыть меню"
+        className="bg-espresso fixed top-[15px] right-[15px] z-40 flex size-11 shrink-0 cursor-pointer flex-col items-center justify-center gap-[5px] rounded-full tablet:hidden"
+      >
+        <span className="h-px w-[22px] bg-white" />
+        <span className="h-px w-[22px] bg-white" />
+        <span className="h-px w-[22px] bg-white" />
+      </button>
 
       {/* Mobile drawer */}
       <div

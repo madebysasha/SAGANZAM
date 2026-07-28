@@ -9,9 +9,17 @@ type CheckboxProps = {
   onChange?: (checked: boolean) => void;
   className?: string;
   labelClassName?: string;
+  error?: boolean;
 };
 
-export function Checkbox({ label, checked, onChange, className, labelClassName }: CheckboxProps) {
+export function Checkbox({
+  label,
+  checked,
+  onChange,
+  className,
+  labelClassName,
+  error,
+}: CheckboxProps) {
   const [internalChecked, setInternalChecked] = useState(false);
   const isControlled = checked !== undefined;
   const value = isControlled ? checked : internalChecked;
@@ -29,7 +37,11 @@ export function Checkbox({ label, checked, onChange, className, labelClassName }
         onChange={(e) => handleChange(e.target.checked)}
         className="peer sr-only"
       />
-      <span className="border-taupe relative mt-0.5 flex size-[18px] shrink-0 items-center justify-center border transition-colors peer-checked:bg-transparent">
+      <span
+        className={`relative mt-0.5 flex size-[18px] shrink-0 items-center justify-center border transition-colors peer-checked:bg-transparent ${
+          error ? "border-red-600" : "border-taupe"
+        }`}
+      >
         {value && (
           <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path

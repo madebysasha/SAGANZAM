@@ -62,7 +62,7 @@ export function ProductCard({ product, className, style }: ProductCardProps) {
           </div>
         )}
       </div>
-      <div className="text-espresso flex w-full items-center justify-between gap-2 font-sans text-lg font-normal">
+      <div className="text-espresso flex w-full items-center justify-between gap-2 font-sans text-base font-normal laptop:text-lg">
         <p className="min-w-0 truncate">{product.name}</p>
         <p className="shrink-0 whitespace-nowrap">от {product.price.toLocaleString("ru-RU")} ₽</p>
       </div>

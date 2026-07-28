@@ -41,8 +41,6 @@ export function ApplicationForm({
   const [agreed, setAgreed] = useState(false);
   const [showAgreementWarning, setShowAgreementWarning] = useState(false);
 
-  const isReady = agreed && name.trim() !== "" && phone.trim() !== "";
-
   if (submitted) {
     return (
       <div
@@ -98,18 +96,17 @@ export function ApplicationForm({
         />
         <SelectField label="Что вас интересует" options={INTEREST_OPTIONS} />
         {withCallTime && (
-          <SelectField label="Удобное время для звонка" options={CALL_TIME_OPTIONS} />
+          <SelectField
+            label="Удобное время для звонка"
+            options={CALL_TIME_OPTIONS}
+            defaultValue="В любое время"
+          />
         )}
       </div>
       <div className="flex w-full flex-col items-start gap-3">
         <button
           type="submit"
-          aria-disabled={!isReady}
-          className={`font-sans flex w-full items-center justify-center gap-4 px-6 py-3 text-lg leading-[1.2] font-normal tracking-[-0.2px] transition-all tablet:py-4 tablet:text-xl tablet:tracking-[-0.4px] ${
-            isReady
-              ? "bg-espresso text-cream cursor-pointer hover:opacity-90"
-              : "bg-espresso/40 text-cream cursor-not-allowed"
-          }`}
+          className="font-sans bg-espresso text-cream flex w-full cursor-pointer items-center justify-center gap-4 px-6 py-3 text-lg leading-[1.2] font-normal tracking-[-0.2px] transition-all hover:opacity-90 tablet:py-4 tablet:text-xl tablet:tracking-[-0.4px]"
         >
           Записаться на консультацию
         </button>
@@ -128,6 +125,7 @@ export function ApplicationForm({
             setAgreed(next);
             if (next) setShowAgreementWarning(false);
           }}
+          error={showAgreementWarning}
           labelClassName={`font-sans text-sm leading-normal font-normal transition-colors ${
             showAgreementWarning ? "text-red-600" : "text-taupe"
           }`}

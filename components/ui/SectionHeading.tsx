@@ -21,10 +21,10 @@ export function SectionHeading({
 
   const eyebrowTitle = (
     <>
-      <p className="font-display text-[20px] leading-[0.95] font-medium tracking-[-0.4px] italic tablet:text-[26px] tablet:leading-[0.9] tablet:tracking-[-0.7px] laptop:text-[32px] laptop:tracking-[-0.96px]">
+      <p className="font-display text-[22px] leading-[0.9] font-medium tracking-[-0.66px] italic tablet:text-[26px] tablet:tracking-[-0.7px] laptop:text-[32px] laptop:tracking-[-0.96px]">
         {eyebrow}
       </p>
-      <p className="font-sans text-[30px] leading-[1.15] font-normal tracking-[-0.6px] tablet:text-[38px] tablet:leading-[1.1] tablet:tracking-[-1.2px] laptop:text-[48px] laptop:tracking-[-1.92px]">
+      <p className="font-sans text-[32px] leading-[1.1] font-light tablet:text-[38px] tablet:tracking-[-1.2px] laptop:text-[48px] laptop:tracking-[-1.92px]">
         {title}
       </p>
     </>
