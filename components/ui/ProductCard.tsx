@@ -52,7 +52,7 @@ export function ProductCard({ product, className, style }: ProductCardProps) {
           />
         ))}
         {images.length > 1 && (
-          <div className="absolute right-0 bottom-2 left-0 flex justify-center gap-1">
+          <div className="absolute right-0 bottom-2 left-0 hidden justify-center gap-1 laptop:flex">
             {images.map((_, i) => (
               <span
                 key={i}

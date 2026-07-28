@@ -70,7 +70,10 @@ export function ProductModalProvider({ children }: { children: ReactNode }) {
           }`}
           onClick={(e) => e.stopPropagation()}
         >
-          <CloseButton onClick={close} className="absolute top-4 right-4" />
+          <CloseButton
+            onClick={close}
+            className="absolute top-4 right-4 z-10 rounded-full bg-cream/90 p-1 shadow-sm backdrop-blur-sm laptop:bg-transparent laptop:p-0 laptop:shadow-none laptop:backdrop-blur-none"
+          />
 
           {product && activeColor && (
             <>
